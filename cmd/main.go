@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"log"
 	"math/rand"
@@ -72,6 +73,7 @@ func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
 		if request.Method == http.MethodGet {
+			fmt.Println("hi")
 			redirectToOriginalURL(writer, request)
 			return
 		} else if request.Method == http.MethodPost {
